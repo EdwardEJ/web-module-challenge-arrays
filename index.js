@@ -170,7 +170,7 @@ function filterByWord(arr, str) {
   return newArr;
 }
 
-console.log(filterByWord(originalFlavors, "Chocolate"));
+// console.log(filterByWord(originalFlavors, "Chocolate"));
 
 /* 🧁🍦🍨 STRETCH 🍨🍦🍫*/
 
@@ -190,10 +190,12 @@ function getAverageWordLength(arr) {
   for (let i = 0; i < arr.length; i++) {
     count += arr[i].split(' ').length;
   }
-  return count / arr.length
+  let avg = count / arr.length;
+
+  return avg;
 }
 
-console.log(getAverageWordLength(originalFlavors));
+// console.log(getAverageWordLength(originalFlavors));
 
 
 /* STRETCH 2: Baskin Robins now offers new flavors, seasonal flavors, and even regional flavors. Write a function that will randomly select a total of 31 flavors from originalFlavors, currentFlavors, seasonalFlavors, and regionalFlavors.
@@ -277,8 +279,17 @@ var regionalFlavors = ["Pink Bubblegum",
   "Chocolate Chocolate Chip Cheesecake",
   "Caramel 'n' Cookies"]
 
-function getRandomFlavors(/*code here*/) {
+function getRandomFlavors(arr1, arr2, arr3, arr4) {
+  let randomFlavors = [];
 
-  /*code here*/
+  const newArr = arr1.concat(arr2, arr3, arr4);
 
+  for (let i = 0; i < newArr.length; i++) {
+    if (newArr[Math.floor(Math.random() * newArr.length)] !== randomFlavors[i] && randomFlavors.length < 31) {
+      randomFlavors.push(newArr[Math.floor(Math.random() * newArr.length)]);
+    }
+  }
+  return randomFlavors;
 }
+
+console.log(getRandomFlavors(originalFlavors, newFlavors, seasonalFlavors, regionalFlavors));
