@@ -287,7 +287,7 @@ function getRandomFlavors(arr1, arr2, arr3, arr4) {
   for (let i = 0; i < newArr.length; i++) {
     let randomIndex = Math.floor(Math.random() * newArr.length);
 
-    if (newArr[randomIndex] !== randomFlavors[i] && randomFlavors.length < 31) {
+    if (!randomFlavors.includes(newArr[randomIndex]) && randomFlavors.length < 31) {
       randomFlavors.push(newArr[randomIndex]);
     }
   }
