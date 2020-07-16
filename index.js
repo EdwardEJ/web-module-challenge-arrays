@@ -285,8 +285,10 @@ function getRandomFlavors(arr1, arr2, arr3, arr4) {
   const newArr = arr1.concat(arr2, arr3, arr4);
 
   for (let i = 0; i < newArr.length; i++) {
-    if (newArr[Math.floor(Math.random() * newArr.length)] !== randomFlavors[i] && randomFlavors.length < 31) {
-      randomFlavors.push(newArr[Math.floor(Math.random() * newArr.length)]);
+    let randomIndex = Math.floor(Math.random() * newArr.length);
+
+    if (newArr[randomIndex] !== randomFlavors[i] && randomFlavors.length < 31) {
+      randomFlavors.push(newArr[randomIndex]);
     }
   }
   return randomFlavors;
